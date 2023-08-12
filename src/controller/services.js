@@ -2,11 +2,10 @@ const axios = require("axios");
 
 exports.getJobs = async (req, res) => {
   try {
-    console.log("masuk");
     const queryParams = {
-      description: req.query.description, // Menggunakan req.query.description
-      location: req.query.location, // Menggunakan req.query.location
-      page: req.query.page, // Menggunakan req.query.page
+      description: req.query.description,
+      location: req.query.location,
+      page: req.query.page,
     };
 
     const response = await axios.get(
@@ -17,11 +16,12 @@ exports.getJobs = async (req, res) => {
     );
 
     const dataFromApi = response.data;
-
+    const filteredData = dataFromApi.filter((item) => item !== null);
+    
     res.send({
       status: "success",
       data: {
-        data: dataFromApi,
+        data: filteredData,
       },
     });
   } catch (error) {

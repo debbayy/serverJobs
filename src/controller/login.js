@@ -77,6 +77,7 @@ exports.login = async (req, res) => {
   });
 
   //tangkap error
+  console.log("login nih");
 
   const { error } = schema.validate(req.body);
 
