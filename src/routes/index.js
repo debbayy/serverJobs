@@ -13,6 +13,6 @@ router.post("/login", login);
 
 const { getJobs, getJobDetail } = require("../controller/services");
 router.get("/jobs", auth, getJobs);
-router.get("/jobs/:id", auth, getJobDetail);
+router.get("/job/:id", auth, getJobDetail);
 
 module.exports = router;
